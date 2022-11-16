@@ -1,0 +1,9 @@
+project:
+  type: website
+
+website:
+  title: "Welcome to Quarto"
+  navbar:
+    left:
+      - index.qmd
+      - hello.qmd

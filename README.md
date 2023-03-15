@@ -12,6 +12,7 @@
 ### Documents
 
 - Open the simple Quarto document called `index.qmd` and edit it using the RStudio Visual Editor.
+- Bold palmerpenguins and add link to https://allisonhorst.github.io/palmerpenguins/.
 - Add code chunk options:
   - `fig-alt`
   - `echo: false` in `execute` in the YAML

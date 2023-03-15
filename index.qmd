@@ -1,28 +1,54 @@
 ---
-title: "Welcome to Quarto"
+title: "Hello, Penguins!"
 format: html
 editor: visual
 ---
 
-## Quarto
+## Data
 
-Quarto enables you to weave together content and executable code into a finished document.
-To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
+For this analysis we'll use the `penguins` dataset from the [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) package.
 
 ```{r}
-1 + 1
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(ggthemes)
+library(palmerpenguins)
+library(gt)
 ```
 
-You can add options to executable code like this
+## Species
+
+The figure below is a bar plot of species of penguins.
 
 ```{r}
-#| echo: false
-2 * 2
+#| label: bill-dims-species
+#| fig-width: 5
+#| fig-asp: 0.618
+
+ggplot(
+  penguins,
+  aes(
+    x = bill_length_mm, y = bill_depth_mm,
+    color = species, shape = species
+  )
+) +
+  geom_point() +
+  theme_minimal() +
+  scale_color_colorblind() +
+  labs(x = "Bill length (mm)", y = "Bill depth (mm)")
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Penguins {.smaller}
+
+The table below shows the first 10 penguins from the dataset.
+
+```{r}
+#| label: penguins-top10
+
+penguins |>
+  slice_head(n = 10) |>
+  select(species, island, bill_length_mm, bill_depth_mm) |>
+  gt()
+```

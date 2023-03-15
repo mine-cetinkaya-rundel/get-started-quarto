@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 6ea3bbf6-6b52-4951-b7eb-7d950d406b9f
+      url: 'https://mine.quarto.pub/welcome-to-quarto'
